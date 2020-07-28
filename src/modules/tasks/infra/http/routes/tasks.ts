@@ -1,16 +1,15 @@
-import { Router, Request, Response } from 'express';
-import CreateTaskService from '@modules/tasks/service/CreateTaskService';
-import { getRepository } from 'typeorm';
-import Task from '../../typeorm/entities/Task';
+import { Router } from 'express';
+import TaskController from '../controllers/TaskController';
 
 const taskRouter = Router();
 
-taskRouter.get('', async (request: Request, response: Response) => {
-  const createTaskService = new CreateTaskService(getRepository(Task));
+const taskController = new TaskController();
 
-  await createTaskService.execute();
+// taskRouter.get('', async (request: Request, response: Response) => {
+// const createTaskService = new CreateTaskService(getRepository(Task));
+// await createTaskService.execute();
+// return response.json({ message: 'tasks' });
+// });
 
-  return response.json({ message: 'tasks' });
-});
-
+taskRouter.get('', taskController.create);
 export default taskRouter;
