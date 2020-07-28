@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('Tasks')
+@Entity('tasks')
 class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -14,7 +14,7 @@ class Task {
   @Column()
   title: string;
 
-  @Column()
+  @Column('timestamp with time zone')
   date: Date;
 
   @Column()
