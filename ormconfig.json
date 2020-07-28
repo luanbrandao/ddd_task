@@ -6,7 +6,7 @@
     "port": 5433,
     "username": "postgres",
     "password": "docker",
-    "database": "gostack_gobarber",
+    "database": "tasks",
     "entities": [
       "./src/modules/**/infra/typeorm/entities/*.ts"
     ],
@@ -22,7 +22,7 @@
     "type": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "database": "gostack_gobarber_ts",
+    "database": "tasks_ts",
     "useUnifiedTopology": true,
     "entities": [
       "./src/modules/**/infra/typeorm/schemas/*.ts"
