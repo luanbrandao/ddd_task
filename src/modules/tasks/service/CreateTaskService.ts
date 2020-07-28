@@ -1,5 +1,6 @@
-import { Repository } from 'typeorm';
+// import { Repository } from 'typeorm';
 import Task from '../infra/typeorm/entities/Task';
+import ITaskReposistory from '../repositories/ITaskReposistory';
 
 interface IRequest {
   title: string;
@@ -8,12 +9,15 @@ interface IRequest {
 }
 
 class CreateTaskService {
-  constructor(private taskRepository: Repository<Task>) {}
+  constructor(
+    // private taskRepository: Repository<Task>
+    private taskRepository: ITaskReposistory,
+  ) {}
 
   public async execute({ title, date, content }: IRequest): Promise<Task> {
     const task = this.taskRepository.create({ title, date, content });
 
-    await this.taskRepository.save(task);
+    // await this.taskRepository.save(task);
 
     return task;
   }
