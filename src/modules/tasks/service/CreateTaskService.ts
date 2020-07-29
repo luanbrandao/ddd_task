@@ -1,4 +1,5 @@
 // import { Repository } from 'typeorm';
+import { injectable, inject } from 'tsyringe';
 import Task from '../infra/typeorm/entities/Task';
 import ITaskReposistory from '../repositories/ITaskReposistory';
 
@@ -8,9 +9,11 @@ interface IRequest {
   content: string;
 }
 
+@injectable()
 class CreateTaskService {
   constructor(
     // private taskRepository: Repository<Task>
+    @inject('TaskReposistory')
     private taskRepository: ITaskReposistory,
   ) {}
 
